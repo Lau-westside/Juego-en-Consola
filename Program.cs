@@ -17,20 +17,22 @@ Console.WriteLine("3. Atacar");
 Console.WriteLine("4. Usar poción");
 Console.WriteLine("0. Salir");
 
-int opcion = int.Parse(Console.ReadLine());
+if (!int.TryParse(Console.ReadLine(), out int opcion))
+    continue;
 
 switch (opcion)
 {
 case 1:
 Console.Write("Nuevo color: ");
-string color = Console.ReadLine();
-p1.CambiarColor(color);
+string? color = Console.ReadLine();
+if (color != null)
+    p1.CambiarColor(color);
 break;
 
 case 2:
 Console.Write("Cantidad de daño: ");
-int danio = int.Parse(Console.ReadLine());
-p1.RecibirDanio(danio);
+if (int.TryParse(Console.ReadLine(), out int danio))
+    p1.RecibirDanio(danio);
 break;
 
 case 3:
@@ -52,16 +54,21 @@ Console.WriteLine("Jugador 1, derrotado");
 Console.WriteLine("1. Reiniciar");
 Console.WriteLine("2. Salir");
 
-int opcio = int.Parse(Console.ReadLine());
-
-if (opcio == 1)
+if (int.TryParse(Console.ReadLine(), out int opcio))
 {
-p1 = CrearPersonaje("Jugador 1");
-p2 = CrearPersonaje("Jugador 2");
+    if (opcio == 1)
+    {
+        p1 = CrearPersonaje("Jugador 1");
+        p2 = CrearPersonaje("Jugador 2");
+    }
+    else
+    {
+        jugando = false;
+    }
 }
 else
 {
-jugando = false;
+    jugando = false;
 }
 
 } 
@@ -77,24 +84,30 @@ Personaje p = new Personaje();
 Console.Clear();
 Console.WriteLine($"˖˖˖˖˖˖˖˖˖˖—》{titulo}《—˖˖˖˖˖˖˖˖˖˖˖");
 Console.Write("Nombre: ");
-p.Nombre = Console.ReadLine();
+string? nombre = Console.ReadLine();
+p.Nombre = nombre ?? "Sin nombre";
 
 Console.Write("Vida máxima: ");
-p.VidaMáxima = int.Parse(Console.ReadLine());
+if (int.TryParse(Console.ReadLine(), out int vidaMax))
+    p.VidaMáxima = vidaMax;
 p.VidaActual = p.VidaMáxima;
 
 Console.Write("Mana máximo: ");
-p.ManáMáximo = int.Parse(Console.ReadLine());
+if (int.TryParse(Console.ReadLine(), out int manaMax))
+    p.ManáMáximo = manaMax;
 p.ManáActual = p.ManáMáximo;
 
 Console.Write("Fuerza: ");
-p.Fuerza = int.Parse(Console.ReadLine());
+if (int.TryParse(Console.ReadLine(), out int fuerza))
+    p.Fuerza = fuerza;
 
 Console.Write("Defensa: ");
-p.Defensa = int.Parse(Console.ReadLine());
+if (int.TryParse(Console.ReadLine(), out int defensa))
+    p.Defensa = defensa;
 
 Console.Write("Color: ");
-p.Color = Console.ReadLine();
+string? color = Console.ReadLine();
+p.Color = color ?? "White";
 
 return p;
 }
@@ -112,14 +125,16 @@ Console.WriteLine("Selecciona el personaje, para aplicar la poción:");
 Console.WriteLine("1. Jugador 1");
 Console.WriteLine("2. Jugador 2");
 
-int target = int.Parse(Console.ReadLine());
+if (!int.TryParse(Console.ReadLine(), out int target))
+    return;
 Personaje elegido = target == 1 ? p1 : p2;
 
 Console.WriteLine("Tipo de poción:");
 Console.WriteLine("1. Vida");
 Console.WriteLine("2. Mana");
 
-int tipo = int.Parse(Console.ReadLine());
+if (!int.TryParse(Console.ReadLine(), out int tipo))
+    return;
 
 Pocion pocion;
 

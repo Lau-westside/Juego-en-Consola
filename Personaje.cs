@@ -1,13 +1,13 @@
 public class Personaje
 {
-   public string Nombre {get; set;}
+   public string? Nombre {get; set;}
    public int VidaMáxima {get; set;}
    public double VidaActual {get; set;}
    public int ManáMáximo {get; set;}
    public double ManáActual {get; set;}
    public int Fuerza  {get; set;}
    public int Defensa {get; set;}
-   public string Color {get; set;}
+   public string? Color {get; set;}
 
 
 public void RecibirDanio(int cantidad)
