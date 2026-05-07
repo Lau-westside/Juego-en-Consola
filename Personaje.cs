@@ -1,4 +1,4 @@
-public class Personaje
+public class Personaje 
 {
    public string? Nombre {get; set;}
    public int VidaMáxima {get; set;}
@@ -8,6 +8,7 @@ public class Personaje
    public int Fuerza  {get; set;}
    public int Defensa {get; set;}
    public string? Color {get; set;}
+   public Inventario Inventario { get; set; } = new Inventario(); 
 
 
 public void RecibirDanio(int cantidad)

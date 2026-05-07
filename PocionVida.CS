@@ -1,6 +1,8 @@
 public class PocionVida : Pocion
 {
-public override int Usar(Personaje p)
+    public override string Descripcion => "Pocion de Vida: Restaura una cantidad aleatoria de vida entre Min y Max.";   
+
+    public override int Usar(Personaje p)
 {
 double curacion = rnd.Next(Min, Max + 1);
 
