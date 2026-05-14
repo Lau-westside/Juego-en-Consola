@@ -1,9 +1,9 @@
 public class Personaje 
 {
    public string? Nombre {get; set;}
-   public int VidaMáxima {get; set;}
-   public double VidaActual {get; set;}
-   public int ManáMáximo {get; set;}
+   public int VidaMáxima {get; set;} 
+   public double VidaActual {get; set;} 
+   public int ManáMáximo {get; set;} 
    public double ManáActual {get; set;}
    public int Fuerza  {get; set;}
    public int Defensa {get; set;}
@@ -36,6 +36,7 @@ public int TomarPocion(Pocion pocion)
 return pocion.Usar(this);
 }
 
+
 public void Mostrar()
 {
 Console.WriteLine($"-{Nombre} ---");
@@ -45,6 +46,7 @@ Console.WriteLine($"Fuerza: {Fuerza}");
 Console.WriteLine($"Defensa: {Defensa}");
 Console.WriteLine($"Color: {Color}");
 Console.WriteLine();
-}
+} 
+
 }
 

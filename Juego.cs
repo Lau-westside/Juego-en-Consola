@@ -1,4 +1,4 @@
-using System;
+/*using System;
 
 public class Juego
 {
@@ -21,7 +21,7 @@ public class Juego
                 p1!.Mostrar();
                 p2!.Mostrar();
 
-                Console.WriteLine("\n1. Cambiar color");
+                Console.WriteLine("1. Cambiar color");
                 Console.WriteLine("2. Recibir daño");
                 Console.WriteLine("3. Atacar");
                 Console.WriteLine("4. Usar poción");
@@ -53,6 +53,7 @@ public class Juego
                     case 4:
                         UsarPocion();
                         break;
+
                     default:
                         break;
                 }
@@ -124,4 +125,4 @@ public class Juego
 
             return p;
         }
-    }
+    } */
