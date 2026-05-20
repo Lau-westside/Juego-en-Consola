@@ -4,7 +4,7 @@ public class Personaje
    public int VidaMáxima {get; set;} 
    public double VidaActual {get; set;} 
    public int ManáMáximo {get; set;} 
-   public double ManáActual {get; set;}
+   public double ManaActual {get; set;}
    public int Fuerza  {get; set;}
    public int Defensa {get; set;}
    public string? Color {get; set;}
@@ -41,7 +41,7 @@ public void Mostrar()
 {
 Console.WriteLine($"-{Nombre} ---");
 Console.WriteLine($"Vida: {VidaActual}/{VidaMáxima}");
-Console.WriteLine($"Mana: {ManáActual}/{ManáMáximo}");
+Console.WriteLine($"Mana: {ManaActual}/{ManáMáximo}");
 Console.WriteLine($"Fuerza: {Fuerza}");
 Console.WriteLine($"Defensa: {Defensa}");
 Console.WriteLine($"Color: {Color}");

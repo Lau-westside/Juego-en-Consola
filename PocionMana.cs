@@ -5,9 +5,9 @@ public override int Usar(Personaje p)
 {
 int recuperacion = rnd.Next(Min, Max + 1);
 
-int nuevoMana = Math.Min(p.ManáMáximo, (int)p.ManáActual + recuperacion);
-int recuperado = nuevoMana - (int)p.ManáActual;
-p.ManáActual = nuevoMana;
+int nuevoMana = Math.Min(p.ManáMáximo, (int)p.ManaActual + recuperacion);
+int recuperado = nuevoMana - (int)p.ManaActual;
+p.ManaActual = nuevoMana;
 
 return recuperado;
 }

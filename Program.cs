@@ -18,7 +18,8 @@
             Console.WriteLine("4. Usar Item (Jugador 1)");
             Console.WriteLine("5. Usar Item (Jugador 2)");
             Console.WriteLine("6. Mostrar estado (Jugador 1)");
-            Console.WriteLine("7. Mostrar estado (Jugador 2)");
+            Console.WriteLine("7. Mostrar Inventario (Jugador 1)");
+            Console.WriteLine("8. Mostrar estado (Jugador 2)");
             Console.WriteLine("0. Salir");
 
             if (!int.TryParse(Console.ReadLine(), out int opcion))
@@ -30,7 +31,7 @@
                     Console.Write("Nuevo color: ");
                     string? color = Console.ReadLine();
                     if (color != null)
-                        p1.CambiarColor(color);
+                    p1.CambiarColor(color);
                     break;
 
                 case 2:
@@ -41,11 +42,12 @@
 
                 case 3:
                     p1.Atacar(p2);
+                    Console.WriteLine("PJ1 a atacado al PJ2");
+                    Console.ReadKey();
                     break;
 
                 case 4:
                     UsarItem(p1);
-                    
                     break;
 
 
@@ -58,6 +60,10 @@
                     Console.ReadKey();
                     break;
                 case 7:
+                MostrarInventario(p1);
+                    Console.ReadKey();
+                  break;
+                case 8:
                     p2.Mostrar();
                     Console.ReadKey();
                     break;
@@ -108,19 +114,13 @@
         Console.Write("Vida máxima: ");
         if (int.TryParse(Console.ReadLine(), out int vidaMax))
         p.VidaMáxima = vidaMax;
-        
-        Console.Write("Vida actual: ");
-        if (int.TryParse(Console.ReadLine(), out int vidaActual))
-        p.VidaActual = vidaActual;
+        p.VidaActual = vidaMax;
         
 
         Console.Write("Mana máximo: ");
         if (int.TryParse(Console.ReadLine(), out int manaMax))
         p.ManáMáximo = manaMax;
-        
-        Console.Write("Mana actual: ");
-        if (int.TryParse(Console.ReadLine(), out int manaActual))
-        p.ManáActual = manaActual;
+        p.ManaActual = manaMax;
 
         Console.Write("Fuerza: ");
         if (int.TryParse(Console.ReadLine(), out int fuerza))
@@ -181,6 +181,16 @@
 
     }
 
+    static void MostrarInventario(Personaje p1)
+    {
+        Console.Clear();
+        Console.WriteLine("inventario: ");
+        foreach(var item in p1.Inventario.Items)
+        {
+            Console.WriteLine(item);
+        }
+    }
+
     static void MostrarEstado(Personaje p1, Personaje p2)
     {
         Console.Clear();
@@ -193,11 +203,12 @@
         Console.WriteLine($"Inventario de {p.Nombre}:");
         if (p.Inventario.Items.Count > 0)
         {
+            //Console.WriteLine(" ");
+            Console.WriteLine("Que item desea usar?");
             int i = 1;
             foreach (var item in p.Inventario.Items)
             {
-                Console.WriteLine(" ");
-                Console.WriteLine("Que item desea usar?");
+                
                 Console.WriteLine($"{i++}- {item.Descripcion}");
             }
             int seleccion = int.Parse(Console.ReadLine());
